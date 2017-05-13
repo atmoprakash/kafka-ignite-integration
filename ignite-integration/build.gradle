@@ -1,0 +1,8 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile "org.apache.ignite:ignite-core:${project.igniteVersion}"
+    compile "org.apache.ignite:ignite-spring:${project.igniteVersion}"
+    compile "org.apache.ignite:ignite-kafka:${project.igniteVersion}"
+
+}

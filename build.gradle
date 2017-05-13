@@ -1,0 +1,66 @@
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+
+
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.0.RELEASE"
+}
+
+group 'com.poc.kafka.ignite.integration'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+
+allprojects {
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    sourceCompatibility = 1.8
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+    sourceSets {
+        test {
+            java.srcDirs = ['src/test/java', 'src/test/groovy']
+        }
+    }
+
+    dependencies {
+        compile("org.projectlombok:lombok:$lombokVersion")
+        compile("ch.qos.logback:logback-classic:$logbackVersion")
+
+        testCompile("junit:junit:$junitVersion")
+        testCompile("org.assertj:assertj-core:$assertjVersion")
+        compile("org.codehaus.groovy:groovy-all:$groovyAllVersion")
+        testCompile("org.spockframework:spock-core:$spockVersion")
+    }
+
+}

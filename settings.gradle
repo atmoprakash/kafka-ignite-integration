@@ -1,0 +1,5 @@
+rootProject.name = 'kafka-ignite-integration'
+include 'ignite-native-kafka'
+include 'client-account'
+include 'ignite-integration'
+
